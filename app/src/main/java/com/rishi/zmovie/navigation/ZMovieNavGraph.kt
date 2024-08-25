@@ -22,11 +22,15 @@ fun ZMovieNavGraph(
     ) {
 
         animatedComposable(ZMovieAppScreen.MovieListScreen.route) {
-            MovieListScreen(navActions::navigateFromMovieListScreen)
+            MovieListScreen(
+                onAction = navActions::navigateFromMovieListScreen
+            )
         }
 
         animatedComposable(route = ZMovieAppScreen.MovieDetailsScreen.route) {
-           MovieDetailsScreen(navActions::navigateFromMovieDetailsScreen)
+            MovieDetailsScreen(
+                onAction = navActions::navigateFromMovieDetailsScreen
+            )
         }
     }
 }

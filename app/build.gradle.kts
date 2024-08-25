@@ -1,3 +1,5 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
@@ -6,6 +8,8 @@ plugins {
 }
 
 android {
+    val buildConfigProperties = gradleLocalProperties(rootDir, providers)
+    buildConfigProperties.load(project.rootProject.file("local.properties").inputStream())
     namespace = "com.rishi.zmovie"
     compileSdk = 34
 
@@ -20,6 +24,8 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+        buildConfigField("String" , "API_KEY" , buildConfigProperties.getProperty("API_KEY") ?: "")
+        buildConfigField("String" , "BASE_URL" , buildConfigProperties.getProperty("BASE_URL") ?: "")
     }
 
     buildTypes {
@@ -40,6 +46,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"

@@ -1,4 +1,4 @@
-package com.rishi.zmovie
+package com.rishi.zmovie.activity
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -13,7 +13,9 @@ import androidx.navigation.compose.rememberNavController
 import com.rishi.zmovie.navigation.ZMovieNavGraph
 import com.rishi.zmovie.navigation.ZMovieNavActions
 import com.rishi.zmovie.ui.theme.ZMovieTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
