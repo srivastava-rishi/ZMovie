@@ -95,7 +95,7 @@ fun MovieListContent(
                 modifier = Modifier
                     .fillMaxSize()
                     .background(Grey)
-                    .padding(horizontal = 16.dp)
+                    .padding(start = 16.dp, end = 16.dp , bottom = 24.dp)
             ) {
                 Spacer(modifier = Modifier.size(24.dp))
                 CustomTextField(
