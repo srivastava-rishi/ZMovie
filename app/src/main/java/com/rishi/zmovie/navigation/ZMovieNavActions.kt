@@ -1,8 +1,10 @@
 package com.rishi.zmovie.navigation
 
 import androidx.navigation.NavController
+import com.rishi.zmovie.navigation.ZMovieAppArgs.ARG_MOVIE_ID
 import com.rishi.zmovie.navigation.actions.MovieDetailsScreenActions
 import com.rishi.zmovie.navigation.actions.MovieListScreenActions
+import com.rishi.zmovie.util.withArg
 
 class ZMovieNavActions(
     private val navController: NavController,
@@ -19,7 +21,10 @@ class ZMovieNavActions(
     fun navigateFromMovieListScreen(actions: MovieListScreenActions) {
         when (actions) {
             is MovieListScreenActions.OpenMovieDetailListScreen -> {
-
+                navController.navigate(
+                    ZMovieAppScreen.MovieDetailsScreen.name
+                        .withArg(ARG_MOVIE_ID, actions.movieId)
+                )
             }
         }
     }

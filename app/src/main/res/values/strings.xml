@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">ZMovie</string>
     <string name="no_data_available">No data available</string>
+    <string name="no_data_found">No data found</string>
     <string name="something_went_wrong">Something went wrong</string>
     <string name="search_movies">Search movies</string>
 </resources>

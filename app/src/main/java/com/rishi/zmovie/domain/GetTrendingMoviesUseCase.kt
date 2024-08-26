@@ -20,6 +20,10 @@ class GetTrendingMoviesUseCase @Inject constructor(private val repository: Trend
             emit(cacheMovieResponse)
         }
     }
+
+    fun getMovieById(movieId: String): MovieItem? {
+        return cacheMovieResponse.find { it.id == movieId }
+    }
 }
 
 fun TrendingMovie.toMovieItem(): MovieItem {

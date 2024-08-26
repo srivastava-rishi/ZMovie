@@ -4,7 +4,7 @@ sealed class ScreenActions
 
 sealed class MovieListScreenActions : ScreenActions() {
     data class OpenMovieDetailListScreen(
-        val newsId: String
+        val movieId: String
     ) : MovieListScreenActions()
 }
 

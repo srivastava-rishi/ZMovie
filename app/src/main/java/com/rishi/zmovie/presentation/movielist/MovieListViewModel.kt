@@ -17,7 +17,6 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MovieListViewModel @Inject constructor(
-    private val savedStateHandle: SavedStateHandle,
     private val getTrendingMoviesUseCase: GetTrendingMoviesUseCase
 ) : ViewModel() {
 
@@ -46,7 +45,7 @@ class MovieListViewModel @Inject constructor(
         }
     }
 
-    fun performSearch(searchText: String) {
+    private fun performSearch(searchText: String) {
         uiState = uiState.copy(
             searchFieldValue = uiState.searchFieldValue.copy(text = searchText),
             filteredList = uiState.movieList.filter {
