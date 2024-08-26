@@ -24,8 +24,9 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
-        buildConfigField("String" , "API_KEY" , buildConfigProperties.getProperty("API_KEY") ?: "")
-        buildConfigField("String" , "BASE_URL" , buildConfigProperties.getProperty("BASE_URL") ?: "")
+        buildConfigField("String" , "API_KEY", buildConfigProperties.getProperty("API_KEY") ?: "")
+        buildConfigField("String" , "BASE_URL", buildConfigProperties.getProperty("BASE_URL") ?: "")
+        buildConfigField("String" , "IMAGE_BASE_URL", buildConfigProperties.getProperty("IMAGE_BASE_URL") ?: "")
     }
 
     buildTypes {

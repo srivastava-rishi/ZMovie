@@ -1,7 +1,13 @@
 package com.rishi.zmovie.util
 
+import android.annotation.SuppressLint
 import androidx.compose.animation.AnimatedVisibilityScope
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.composed
 import androidx.navigation.NamedNavArgument
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavDeepLink
@@ -22,6 +28,16 @@ fun String.withArg(argName: String, argValue: String) =
     "$this?$argName=${argValue}"
 
 //=========================================================================
+
+fun Modifier.noRippleClickable(onClick: () -> Unit): Modifier = composed {
+    clickable(
+        indication = null,
+        interactionSource = remember { MutableInteractionSource() }
+    ) {
+        onClick()
+    }
+}
+
 fun NavGraphBuilder.animatedComposable(
     route: String,
     arguments: List<NamedNavArgument> = emptyList(),
